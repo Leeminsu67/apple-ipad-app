@@ -36,10 +36,12 @@ function hideBasket() {
 
 // 검색
 const headerEl = document.querySelector(`header`);
+const headerMenuEls = [...headerEl.querySelectorAll(`ul.menu > li`)];
 const searchWrapEl = headerEl.querySelector(`.search-wrap`);
 const searchStarterEl = headerEl.querySelector(`.search-starter`);
 const searchCloserEl = searchWrapEl.querySelector(`.search-closer`);
 const searchShadowEl = searchWrapEl.querySelector(`.shadow`);
+const searchDelayEls = [...searchWrapEl.querySelectorAll(`li`)];
 
 searchStarterEl.addEventListener("click", showSearch);
 
@@ -51,9 +53,24 @@ function showSearch() {
   headerEl.classList.add(`searching`);
   // document의 최상위 요소 선택(html)
   document.documentElement.classList.add("fixed");
+  // 애니메이션 효과
+  headerMenuEls.reverse().forEach(function (el, index) {
+    el.style.transitionDelay = `${(index * 0.4) / headerMenuEls.length}s`;
+  });
+  searchDelayEls.forEach(function (el, index) {
+    el.style.transitionDelay = `${(index * 0.4) / searchDelayEls.length}s`;
+  });
 }
 
 function hideSearch() {
   headerEl.classList.remove(`searching`);
   document.documentElement.classList.remove("fixed");
+  // 애니메이션 효과
+  headerMenuEls.reverse().forEach(function (el, index) {
+    el.style.transitionDelay = `${(index * 0.4) / headerMenuEls.length}s`;
+  });
+  searchDelayEls.reverse().forEach(function (el, index) {
+    el.style.transitionDelay = `${(index * 0.4) / searchDelayEls.length}s`;
+  });
+  searchDelayEls.reverse();
 }
