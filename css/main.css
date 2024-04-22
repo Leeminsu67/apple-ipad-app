@@ -71,7 +71,6 @@ header ul.menu > li > a:hover {
 /* HEADER / MENU / Basket */
 
 header .basket {
-  display: none;
   width: 290px;
   padding: 10px 20px;
   border: 1px solid #d2d2d2;
@@ -81,10 +80,17 @@ header .basket {
   position: absolute;
   top: calc(100% + 4px);
   right: -6px;
+
+  /* display랑 opacity 속성은 transition 속성의 애니메이션 효과를 받지 않는다 */
+  /* 그래서 visibilty를 이용해서 애니메이션 효과를 넣어준다 */
+  transition: 0.4s;
+  opacity: 0;
+  visibility: hidden;
 }
 
 header .basket.show {
-  display: block;
+  visibility: visible;
+  opacity: 1;
 }
 
 header .basket .arrow {
