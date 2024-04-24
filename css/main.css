@@ -1167,6 +1167,73 @@ nav .inner .menu li.active a:hover {
   transform: translate(470px, -620px);
 }
 
+/* AR */
+
+.ar {
+  background-color: var(--color-section);
+  padding: 20px 20px 0;
+}
+
+.ar .whitebox {
+  padding-bottom: 0;
+}
+
+.ar .inner {
+  display: flex;
+}
+
+.ar .inner > div {
+  max-width: 410px;
+  margin-top: 60px;
+  margin-right: 90px;
+}
+
+/* Environment */
+
+.environment {
+  padding: 20px 20px 0;
+  background-color: var(--color-section);
+  text-align: center;
+}
+
+.environment .icon {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.environment h1 {
+  color: #03a10e;
+}
+
+/* Accessory Shop  */
+
+.accessory-shop {
+  background-color: var(--color-section);
+  text-align: center;
+}
+
+.accessory-shop .whitebox {
+  padding-bottom: 0;
+}
+
+.accessory-shop .inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.accessory-shop img {
+  margin-top: 50px;
+}
+
+/* Trade */
+
+.trade {
+  pad: 20px 20px 0;
+  background-color: var(--color-section);
+  text-align: center;
+}
+
 /* ======================================================== */
 /* ======================================================== */
 /* KEYFRAMES */
