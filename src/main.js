@@ -1,3 +1,5 @@
+import ipadsData from "../data/ipads.js";
+
 // 장바구니
 const basketStarterEl = document.querySelector(`header .basket-starter`);
 const basketEl = basketStarterEl.querySelector(`.basket`);
@@ -112,3 +114,36 @@ pauseBtn.addEventListener("click", function () {
   playBtn.classList.remove(`hide`);
   pauseBtn.classList.add(`hide`);
 });
+
+// Compare data 랜더링
+
+const itemsEl = document.querySelector(`section.compare .items`);
+
+ipadsData.forEach(function (ipad) {
+  const itemEl = document.createElement("div");
+  itemEl.classList.add(`item`);
+  // toLocalString은 미국 원화 3자리 마다 콤마를 넣어줌
+  itemEl.innerHTML = /* html */ `
+    <div class="thumbnail">
+      <img src="${ipad.thumbnail}" alt="${ipad.name}" />
+    </div>
+    <ul class="colors">
+      ${colorsArr(ipad.colors)}
+    </ul>
+
+    <h3 class="name">${ipad.name}</h3>
+    <p class="tagline">${ipad.tagline}</p>
+    <p class="price">₩${ipad.price.toLocaleString("en-US")}</p>
+    <button class="btn">구입하기</button>
+    <a href="${ipad.url}" class="link">더 알아보기</a>
+  `;
+  itemsEl.append(itemEl);
+});
+
+function colorsArr(colorList) {
+  let colorHTMLStr = ``;
+  colorList.forEach(function (color) {
+    colorHTMLStr += `<li style="background-color: ${color};"></li>`;
+  });
+  return colorHTMLStr;
+}
